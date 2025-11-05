@@ -30,5 +30,14 @@
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true
-  }
+  },
+  "include": [
+    "src",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "tests"
+  ]
 }
