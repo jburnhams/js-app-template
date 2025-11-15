@@ -11,7 +11,7 @@ describe('Browser Integration Tests', () => {
 
     beforeEach(() => {
       htmlContent = fs.readFileSync(
-        path.join(__dirname, '..', 'index.html'),
+        path.join(__dirname, '..', '..', 'index.html'),
         'utf-8'
       );
     });
@@ -188,7 +188,7 @@ describe('Browser Integration Tests', () => {
 
       // Verify index.html exists and has root element
       const html = fs.readFileSync(
-        path.join(__dirname, '..', 'index.html'),
+        path.join(__dirname, '..', '..', 'index.html'),
         'utf-8'
       );
       expect(html).toContain('id="root"');
