@@ -1,4 +1,4 @@
-import { describe, it, expect, jest } from '@jest/globals';
+
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from '@/src/components/Button';
@@ -10,7 +10,7 @@ describe('Button Component', () => {
   });
 
   it('calls onClick when clicked', async () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     const user = userEvent.setup();
 
     render(<Button label="Click me" onClick={handleClick} />);
@@ -20,7 +20,7 @@ describe('Button Component', () => {
   });
 
   it('does not call onClick when disabled', async () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     const user = userEvent.setup();
 
     render(<Button label="Click me" onClick={handleClick} disabled />);

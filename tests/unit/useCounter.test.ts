@@ -1,4 +1,4 @@
-import { describe, it, expect } from '@jest/globals';
+
 import { renderHook, act } from '@testing-library/react';
 import { useCounter } from '@/src/hooks/useCounter';
 

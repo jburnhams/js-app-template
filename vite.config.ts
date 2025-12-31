@@ -1,5 +1,6 @@
+/// <reference types="vitest" />
 import path from 'path';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
@@ -11,6 +12,24 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),
+    }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./tests/utils/setup.ts'],
+    css: true,
+    coverage: {
+      provider: 'v8',
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/**/*.d.ts', '**/node_modules/**'],
+      reporter: ['text', 'lcov', 'html'],
+      thresholds: {
+        lines: 80,
+        functions: 85,
+        branches: 70,
+        statements: 80,
+      }
     }
   }
 });
