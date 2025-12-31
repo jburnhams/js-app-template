@@ -1,4 +1,5 @@
 /// <reference types="vitest" />
+import tailwindcss from '@tailwindcss/vite'
 import path from 'path';
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
@@ -8,7 +9,7 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
   },
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),
@@ -16,7 +17,13 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'jsdom',
+    // Default to node, but we'll override for integration
+    environment: 'node',
+    // Match integration tests to use jsdom
+    environmentMatchGlobs: [
+      ['tests/integration/**', 'jsdom'],
+      ['tests/unit/**', 'node'],
+    ],
     setupFiles: ['./tests/utils/setup.ts'],
     css: true,
     coverage: {
