@@ -1,4 +1,4 @@
-import { describe, it, expect } from '@jest/globals';
+
 import { add, subtract, multiply, divide, percentage } from '@/src/services/calculator';
 
 describe('Calculator Service', () => {
