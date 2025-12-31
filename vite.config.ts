@@ -19,11 +19,6 @@ export default defineConfig({
     globals: true,
     // Default to node, but we'll override for integration
     environment: 'node',
-    // Match integration tests to use jsdom
-    environmentMatchGlobs: [
-      ['tests/integration/**', 'jsdom'],
-      ['tests/unit/**', 'node'],
-    ],
     setupFiles: ['./tests/utils/setup.ts'],
     css: true,
     coverage: {
